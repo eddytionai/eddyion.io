@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDDY.TION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: url('background.png') center center / cover no-repeat;
+        }
+
+
+
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 1.8%;
+            z-index: 100;
+            overflow: visible;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+        }
+
+        .logo {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            justify-self: start;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 9vw;
+            justify-self: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.7rem;
+            align-items: center;
+            justify-self: end;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a:hover {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                position: static;
+                transform: none;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero"></div>
+
+    <nav>
+        <div class="logo">EDDY.TION</div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#play">Play</a>
+            <a href="#about">About</a>
+        </div>
+        <div class="social-links">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1.41075" y="1.41075" width="27.1785" height="27.1785" rx="7.01536" stroke="white" stroke-width="2.8215"/>
+                    <circle cx="15.0095" cy="15.01" r="6.37236" stroke="white" stroke-width="2.72553"/>
+                    <circle cx="23.0326" cy="6.9865" r="1.81382" fill="white" stroke="white" stroke-width="0.0191939"/>
+                </svg>
+            </a>
+            <a href="https://behance.net" target="_blank" aria-label="Behance">
+                <svg width="70" height="24" viewBox="0 0 87 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.5293 20.5713C18.5293 21.5428 18.335 22.3964 17.9465 23.1303C17.5571 23.8647 17.023 24.4802 16.3424 24.9765C15.6621 25.4738 14.8736 25.8512 13.9778 26.1102C13.0815 26.3696 12.1256 26.4989 11.1111 26.4989H0V3.5H12.3094C13.1084 3.5 13.8322 3.67298 14.4802 4.01843C15.1278 4.36439 15.6787 4.81192 16.132 5.36254C16.5856 5.9134 16.9363 6.5402 17.185 7.24167C17.4331 7.94364 17.5571 8.65064 17.5571 9.36342C17.5571 10.486 17.2762 11.5392 16.7153 12.5215C16.1531 13.5043 15.333 14.233 14.2531 14.7079C15.5706 15.0963 16.6122 15.7933 17.3793 16.7972C18.1454 17.8017 18.5296 19.0598 18.5296 20.5713H18.5293ZM4.4705 7.32262V13.1209H10.431C11.1868 13.1209 11.8292 12.8615 12.3584 12.3433C12.8869 11.8253 13.1519 11.1126 13.1519 10.2057C13.1519 9.2988 12.909 8.61845 12.4228 8.10002C11.9373 7.58184 11.3379 7.32262 10.6251 7.32262H4.4705ZM14.0266 19.7291C14.0266 19.319 13.9562 18.9248 13.8159 18.5469C13.6756 18.1695 13.4863 17.8399 13.2492 17.5588C13.0116 17.2782 12.731 17.0567 12.4069 16.8948C12.0831 16.7329 11.7268 16.6519 11.3379 16.6519H4.4705V22.7092H11.1114C11.5214 22.7092 11.9051 22.6337 12.2614 22.4824C12.6179 22.3315 12.9254 22.1208 13.1848 21.8508C13.4441 21.581 13.649 21.2625 13.8003 20.8952C13.9512 20.5283 14.0268 20.1396 14.0268 19.7291H14.0266Z" fill="white"/>
+                    <path d="M28.2121 26.4995C26.8942 26.4995 25.7017 26.2744 24.6341 25.8246C22.5199 24.9245 21.029 23.4127 20.1616 21.2892C19.7535 20.2642 19.5496 19.1863 19.5496 18.0564C19.5496 16.9266 19.7482 15.7811 20.146 14.745C20.998 12.5943 22.489 11.0619 24.6185 10.1467C25.6961 9.6871 26.9045 9.45654 28.2438 9.45654C29.5831 9.45654 30.7806 9.6871 31.8374 10.1467C35.311 11.6613 36.9473 15.0273 36.7967 18.6842C36.7859 18.9352 36.7595 19.1448 36.7182 19.312H24.0061C24.0687 19.9607 24.2256 20.536 24.477 21.0381C24.7282 21.5404 25.0522 21.9696 25.45 22.3251C25.8472 22.6809 26.2973 22.9529 26.7999 23.141C27.302 23.3293 27.8244 23.4236 28.3693 23.4236C29.2055 23.4236 29.9957 23.2194 30.7387 22.8113C31.4816 22.4033 31.9892 21.8652 32.261 21.1952L35.8704 22.1996C35.2635 23.4552 34.296 24.4861 32.9673 25.2914C31.6385 26.0972 30.0533 26.4997 28.2121 26.4997V26.4995ZM32.4815 16.5813C32.3764 15.3469 31.9213 14.358 31.1158 13.6153C30.31 12.8729 29.3317 12.501 28.1812 12.501C27.6162 12.501 27.0877 12.6006 26.596 12.7992C26.1039 12.9983 25.67 13.2754 25.2933 13.6309C24.9167 13.9872 24.608 14.4153 24.3674 14.9179C24.1265 15.4198 23.9855 15.9749 23.944 16.5811H32.4815V16.5816V16.5813Z" fill="white"/>
+                    <path d="M22.6781 4.5918H33.6836V7.32249H22.6781V4.5918Z" fill="white"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+</body>
+</html>
