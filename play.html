@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play - EDDY.TION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #FFF;
+            color: #000;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .content-wrapper {
+            padding: 0 24px;
+        }
+
+        /* Header Section */
+        .play-header {
+            display: flex;
+            width: 100%;
+            padding: 73px 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .play-title {
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 112%;
+            letter-spacing: -2px;
+        }
+
+        /* Grid Section */
+        .play-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 0 0 150px 0;
+            gap: 16px;
+            align-self: stretch;
+        }
+
+        .project-card {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .project-image {
+            display: flex;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            justify-content: center;
+            align-items: center;
+            background: #D9D9D9;
+        }
+
+        .project-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover .project-info {
+            opacity: 1;
+        }
+
+        .project-title {
+            color: #FFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 100%;
+            text-align: center;
+        }
+
+        .project-subtitle {
+            display: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            width: 100%;
+            height: 100px;
+            padding: 0 24px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            z-index: 100;
+            background: linear-gradient(0deg, #FFF -58%, rgba(255, 255, 255, 0.00) 81.5%);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo {
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 100%;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover {
+            opacity: 0.6;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 200px;
+            flex: 1 0 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a {
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 100%;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: #000;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (min-width: 769px) {
+            .content-wrapper,
+            nav {
+                padding-left: 4vw;
+                padding-right: 4vw;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .content-wrapper,
+            nav {
+                padding-left: 6vw;
+                padding-right: 6vw;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .content-wrapper,
+            nav {
+                padding-left: 8vw;
+                padding-right: 8vw;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .play-title {
+                font-size: 48px;
+            }
+
+            .play-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .play-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .play-title {
+                font-size: 36px;
+                line-height: 120%;
+            }
+
+            .play-grid {
+                gap: 40px;
+            }
+
+            .project-title,
+            .project-subtitle {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .play-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                height: auto;
+                padding: 24px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 24px;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                position: static;
+                transform: none;
+                gap: 32px;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="play-header">
+            <h1 class="play-title">A PLACE<br>MAKE, EXPERIMENT AND PLAY</h1>
+        </header>
+
+        <!-- Grid -->
+        <section class="play-grid">
+        <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-info">
+                <div class="project-title">Title</div>
+                <div class="project-subtitle">sub text</div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-info">
+                <div class="project-title">Title</div>
+                <div class="project-subtitle">sub text</div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-info">
+                <div class="project-title">Title</div>
+                <div class="project-subtitle">sub text</div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-info">
+                <div class="project-title">Title</div>
+                <div class="project-subtitle">sub text</div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">EDDY.TION</a>
+            <div class="nav-links">
+                <a href="work.html">Work</a>
+                <a href="play.html">Play</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1.41075" y="1.41075" width="27.1785" height="27.1785" rx="7.01536" stroke="black" stroke-width="2.8215"/>
+                        <circle cx="15.0095" cy="15.0098" r="6.37236" stroke="black" stroke-width="2.72553"/>
+                        <circle cx="23.0326" cy="6.98662" r="1.81382" fill="black" stroke="black" stroke-width="0.0191939"/>
+                    </svg>
+                </a>
+                <a href="https://behance.net" target="_blank" aria-label="Behance">
+                    <svg width="37" height="30" viewBox="0 0 37 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.7229 20.5713C18.7229 21.5428 18.5286 22.3964 18.1401 23.1303C17.7507 23.8647 17.2167 24.4802 16.5361 24.9765C15.8557 25.4738 15.0672 25.8512 14.1714 26.1102C13.2751 26.3696 12.3192 26.4989 11.3047 26.4989H0.193604V3.5H12.503C13.302 3.5 14.0259 3.67298 14.6738 4.01843C15.3214 4.36439 15.8723 4.81192 16.3256 5.36254C16.7792 5.9134 17.1299 6.5402 17.3786 7.24167C17.6267 7.94364 17.7507 8.65064 17.7507 9.36342C17.7507 10.486 17.4698 11.5392 16.9089 12.5215C16.3467 13.5043 15.5266 14.233 14.4467 14.7079C15.7642 15.0963 16.8058 15.7933 17.5729 16.7972C18.339 17.8017 18.7232 19.0598 18.7232 20.5713H18.7229ZM4.66414 7.32262V13.1209H10.6246C11.3804 13.1209 12.0228 12.8615 12.552 12.3433C13.0805 11.8253 13.3455 11.1126 13.3455 10.2057C13.3455 9.2988 13.1026 8.61845 12.6164 8.10002C12.1309 7.58184 11.5315 7.32262 10.8187 7.32262H4.66414ZM14.2202 19.7291C14.2202 19.319 14.1498 18.9248 14.0095 18.5469C13.8692 18.1695 13.6799 17.8399 13.4428 17.5588C13.2052 17.2782 12.9246 17.0567 12.6005 16.8948C12.2767 16.7329 11.9204 16.6519 11.5315 16.6519H4.66414V22.7092H11.305C11.715 22.7092 12.0987 22.6337 12.455 22.4824C12.8115 22.3315 13.119 22.1208 13.3784 21.8508C13.6377 21.581 13.8426 21.2625 13.9939 20.8952C14.1448 20.5283 14.2205 20.1396 14.2205 19.7291H14.2202Z" fill="black"/>
+                        <path d="M28.4057 26.4993C27.0877 26.4993 25.8952 26.2743 24.8277 25.8245C22.7135 24.9244 21.2225 23.4126 20.3551 21.2891C19.9471 20.2641 19.7432 19.1862 19.7432 18.0563C19.7432 16.9264 19.9418 15.7809 20.3395 14.7448C21.1916 12.5942 22.6825 11.0618 24.8121 10.1466C25.8897 9.68698 27.098 9.45642 28.4373 9.45642C29.7767 9.45642 30.9742 9.68698 32.0309 10.1466C35.5046 11.6611 37.1408 15.0272 36.9902 18.6841C36.9794 18.935 36.953 19.1447 36.9118 19.3119H24.1996C24.2622 19.9606 24.4191 20.5358 24.6705 21.0379C24.9217 21.5403 25.2458 21.9695 25.6435 22.325C26.0408 22.6807 26.4908 22.9528 26.9934 23.1408C27.4955 23.3291 28.018 23.4234 28.5628 23.4234C29.399 23.4234 30.1893 23.2193 30.9322 22.8112C31.6752 22.4032 32.1828 21.8651 32.4546 21.1951L36.064 22.1995C35.4571 23.4551 34.4896 24.4859 33.1608 25.2912C31.8321 26.0971 30.2468 26.4996 28.4057 26.4996V26.4993ZM32.6751 16.5812C32.57 15.3467 32.1149 14.3579 31.3093 13.6152C30.5035 12.8727 29.5253 12.5009 28.3747 12.5009C27.8098 12.5009 27.2813 12.6005 26.7895 12.7991C26.2975 12.9982 25.8635 13.2753 25.4869 13.6308C25.1103 13.9871 24.8015 14.4152 24.5609 14.9178C24.3201 15.4197 24.179 15.9748 24.1375 16.581H32.6751V16.5815V16.5812Z" fill="black"/>
+                        <path d="M22.8716 4.59204H33.8771V7.32274H22.8716V4.59204Z" fill="black"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
