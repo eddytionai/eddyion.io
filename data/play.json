@@ -1,0 +1,88 @@
+{
+  "projects": [
+    {
+      "id": "play-1",
+      "title": "Experiment 1",
+      "subtitle": "Visual Research",
+      "thumbnail": "assets/play/play-1/thumbnail.jpg",
+      "size": "size-large"
+    },
+    {
+      "id": "play-2",
+      "title": "Experiment 2",
+      "subtitle": "Motion Study",
+      "thumbnail": "assets/play/play-2/thumbnail.jpg",
+      "size": "size-large"
+    },
+    {
+      "id": "play-3",
+      "title": "Experiment 3",
+      "subtitle": "Typography",
+      "thumbnail": "assets/play/play-3/thumbnail.jpg",
+      "size": "size-horizontal"
+    },
+    {
+      "id": "play-4",
+      "title": "Experiment 4",
+      "subtitle": "3D Render",
+      "thumbnail": "assets/play/play-4/thumbnail.jpg",
+      "size": "size-horizontal"
+    },
+    {
+      "id": "play-5",
+      "title": "Experiment 5",
+      "subtitle": "Animation",
+      "thumbnail": "assets/play/play-5/thumbnail.jpg",
+      "size": "size-vertical"
+    },
+    {
+      "id": "play-6",
+      "title": "Experiment 6",
+      "subtitle": "Color Study",
+      "thumbnail": "assets/play/play-6/thumbnail.jpg",
+      "size": "size-vertical"
+    },
+    {
+      "id": "play-7",
+      "title": "Experiment 7",
+      "subtitle": "Composition",
+      "thumbnail": "assets/play/play-7/thumbnail.jpg",
+      "size": "size-vertical"
+    },
+    {
+      "id": "play-8",
+      "title": "Experiment 8",
+      "subtitle": "Abstract",
+      "thumbnail": "assets/play/play-8/thumbnail.jpg",
+      "size": "size-square"
+    },
+    {
+      "id": "play-9",
+      "title": "Experiment 9",
+      "subtitle": "Pattern",
+      "thumbnail": "assets/play/play-9/thumbnail.jpg",
+      "size": "size-square"
+    },
+    {
+      "id": "play-10",
+      "title": "Experiment 10",
+      "subtitle": "Texture",
+      "thumbnail": "assets/play/play-10/thumbnail.jpg",
+      "size": "size-square"
+    },
+    {
+      "id": "play-11",
+      "title": "Experiment 11",
+      "subtitle": "Form",
+      "thumbnail": "assets/play/play-11/thumbnail.jpg",
+      "size": "size-square"
+    },
+    {
+      "id": "play-12",
+      "title": "Experiment 12",
+      "subtitle": "Space",
+      "thumbnail": "assets/play/play-12/thumbnail.jpg",
+      "size": "size-square"
+    }
+  ]
+}

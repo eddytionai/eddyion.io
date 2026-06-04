@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play - EDDY.TION</title>
+    <title>Project - EDDY.TION</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,136 +26,91 @@
             padding: 0 24px;
         }
 
-        /* Header Section */
-        .play-header {
-            display: flex;
+        /* Hero Image */
+        .hero-image {
             width: 100%;
-            padding: 73px 0;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
+            aspect-ratio: 2520 / 1285;
+            background: #D9D9D9;
+            margin-bottom: 60px;
         }
 
-        .play-title {
+        /* Project Info Section */
+        .project-info-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .project-title {
             color: #000;
             font-family: 'Inter', sans-serif;
-            font-size: 60px;
+            font-size: 48px;
             font-style: normal;
             font-weight: 600;
             line-height: 112%;
             letter-spacing: -2px;
         }
 
-        .play-title span {
-            display: block;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .play-title span:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .play-title span:nth-child(2) {
-            animation-delay: 0.1s;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Grid Section */
-        .play-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 300px;
-            grid-auto-flow: dense;
-            padding: 0 0 150px 0;
-            gap: 16px;
-            align-self: stretch;
-        }
-
-        .project-card {
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        /* Grid size variations */
-        .project-card.size-square {
-            grid-column: span 1;
-            grid-row: span 1;
-        }
-
-        .project-card.size-vertical {
-            grid-column: span 1;
-            grid-row: span 2;
-        }
-
-        .project-card.size-horizontal {
-            grid-column: span 2;
-            grid-row: span 1;
-        }
-
-        .project-card.size-large {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .project-image {
+        .project-meta {
             display: flex;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            background: #D9D9D9;
-            object-fit: cover;
+            align-items: flex-start;
+            gap: 100px;
         }
 
-        .project-info {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+        .meta-item {
             display: flex;
+            width: 257px;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 24px;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            transition: opacity 0.3s;
+            align-items: flex-start;
+            gap: 5px;
         }
 
-        .project-card:hover .project-info {
-            opacity: 1;
-        }
-
-        .project-title {
-            color: #FFF;
+        .meta-label {
+            color: #000;
             font-family: 'Inter', sans-serif;
-            font-size: 20px;
+            font-size: 16px;
             font-style: normal;
-            font-weight: 600;
-            line-height: 120%;
-            text-align: center;
-            margin-bottom: 8px;
+            font-weight: 500;
+            line-height: 110%;
+            letter-spacing: -0.5px;
         }
 
-        .project-subtitle {
-            color: #FFF;
+        .meta-value {
+            color: #9C9C9C;
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             font-style: normal;
             font-weight: 400;
-            line-height: 120%;
-            text-align: center;
-            opacity: 0.8;
+            line-height: 121%;
+            letter-spacing: -0.5px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 150px;
+        }
+
+        .gallery-image-full {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: #D9D9D9;
+        }
+
+        .gallery-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-image-half {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: #D9D9D9;
         }
 
         /* Navigation */
@@ -273,25 +228,11 @@
             }
         }
 
-        @media (max-width: 1200px) {
-            .play-title {
-                font-size: 48px;
-            }
-
-            .play-grid {
-                grid-template-columns: repeat(3, 1fr);
-                grid-auto-rows: 250px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .play-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 200px;
-            }
-        }
-
         @media (max-width: 1024px) {
+            .project-title {
+                font-size: 40px;
+            }
+
             .nav-links {
                 gap: 60px;
             }
@@ -304,21 +245,24 @@
         }
 
         @media (max-width: 768px) {
-            .play-title {
-                font-size: 36px;
-                line-height: 120%;
+            .hero-image {
+                margin-bottom: 40px;
             }
 
-            .play-grid {
-                gap: 12px;
+            .project-info-section {
+                margin-bottom: 60px;
             }
 
             .project-title {
-                font-size: 16px;
+                font-size: 32px;
             }
 
-            .project-subtitle {
-                font-size: 12px;
+            .project-meta {
+                gap: 40px;
+            }
+
+            .gallery-section {
+                margin-bottom: 120px;
             }
 
             .nav-links {
@@ -340,9 +284,15 @@
         }
 
         @media (max-width: 600px) {
-            .play-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 150px;
+            .hero-image {
+            }
+
+            .project-title {
+                font-size: 28px;
+            }
+
+            .gallery-row {
+                grid-template-columns: 1fr;
             }
 
             nav {
@@ -388,17 +338,35 @@
     </style>
 </head>
 <body>
-    <div class="content-wrapper">
-        <!-- Header -->
-        <header class="play-header">
-            <h1 class="play-title">
-                <span>A PLACE</span>
-                <span>MAKE, EXPERIMENT AND PLAY</span>
-            </h1>
-        </header>
+    <!-- Hero Image -->
+    <div class="hero-image"></div>
 
-        <!-- Grid -->
-        <section class="play-grid" id="playGrid"></section>
+    <div class="content-wrapper">
+        <!-- Project Info -->
+        <section class="project-info-section">
+            <h1 class="project-title">Decoding the Future of Innovation</h1>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Categories</div>
+                    <div class="meta-value">Graphic Design Illustration</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Date</div>
+                    <div class="meta-value">2021. 10</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery-section">
+            <div class="gallery-image-full"></div>
+            <div class="gallery-row">
+                <div class="gallery-image-half"></div>
+                <div class="gallery-image-half"></div>
+            </div>
+            <div class="gallery-image-full"></div>
+            <div class="gallery-image-full"></div>
+        </section>
     </div>
 
     <!-- Navigation -->
@@ -426,38 +394,5 @@
             </div>
         </div>
     </nav>
-
-    <script>
-        // Load play projects from JSON
-        async function loadProjects() {
-            try {
-                const response = await fetch('data/play.json');
-                const data = await response.json();
-                const grid = document.getElementById('playGrid');
-
-                data.projects.forEach(project => {
-                    const card = document.createElement('div');
-                    card.className = `project-card ${project.size}`;
-
-                    card.innerHTML = `
-                        <div class="project-image" style="background-image: url('${project.thumbnail}'); background-size: cover; background-position: center;"></div>
-                        <div class="project-info">
-                            <div>
-                                <div class="project-title">${project.title}</div>
-                                <div class="project-subtitle">${project.subtitle}</div>
-                            </div>
-                        </div>
-                    `;
-
-                    grid.appendChild(card);
-                });
-            } catch (error) {
-                console.error('Failed to load projects:', error);
-            }
-        }
-
-        // Load projects on page load
-        loadProjects();
-    </script>
 </body>
 </html>
