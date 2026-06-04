@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDDY.TION</title>
+    <title>About - EDDY.TION</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,41 +22,25 @@
             overflow-y: scroll;
         }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            height: 488px;
+        .content-wrapper {
             padding: 0 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            width: 100%;
+            padding: 73px 0;
+            flex-direction: column;
             align-items: flex-start;
             gap: 10px;
-            flex-shrink: 0;
-            align-self: stretch;
-            width: 100%;
+            flex: 1;
         }
 
-        .hero-text {
+        .about-text {
             color: #FFF;
             font-family: 'Inter', sans-serif;
             font-size: 60px;
@@ -64,6 +48,32 @@
             font-weight: 600;
             line-height: 112%;
             letter-spacing: -2px;
+        }
+
+        .about-text span {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .about-text span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .about-text span:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .about-text span:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Navigation */
@@ -157,174 +167,34 @@
             transition: width 0.3s ease, height 0.3s ease;
         }
 
-        /* Works Section */
-        .works-section {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 380.5px;
-            background: #FFF;
-            padding: 100px 0;
-        }
-
-        .works-header {
-            display: flex;
-            height: 360px;
-            padding: 0 24px;
-            align-items: flex-start;
-            gap: 10px;
-            align-self: stretch;
-            width: 100%;
-        }
-
-        .works-title {
-            color: #FFF;
-            font-family: 'Inter', sans-serif;
-            font-size: 100px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 98%;
-            letter-spacing: -3px;
-        }
-
-        .project-card {
-            display: flex;
-            padding: 36.5px 24px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            align-self: stretch;
-            width: 100%;
-        }
-
-        .project-image {
-            width: 100%;
-            padding-bottom: 100%;
-            background: #D9D9D9;
-            margin-bottom: 24px;
-            position: relative;
-        }
-
-        .project-info {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .project-title {
-            color: #000;
-            font-family: 'Inter', sans-serif;
-            font-size: 60px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 112%;
-            letter-spacing: -2px;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 16px;
-        }
-
-        .project-category {
-            color: #9C9C9C;
-            font-family: 'Inter', sans-serif;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 121%;
-            letter-spacing: -0.5px;
-        }
-
-        .project-date {
-            color: #9C9C9C;
-            font-family: 'Inter', sans-serif;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 121%;
-            letter-spacing: -0.5px;
-        }
-
-        .project-grid {
-            display: flex;
-            padding: 0 24px 36.5px 24px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            align-self: stretch;
-            width: 100%;
-        }
-
-        .project-grid-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            width: 100%;
-        }
-
-        .project-grid-item {
-            background: #D9D9D9;
-            width: 100%;
-            padding-bottom: 100%;
-            position: relative;
-        }
-
         /* Responsive */
         @media (min-width: 769px) {
-            .hero-content,
-            nav,
-            .works-header,
-            .project-card,
-            .project-grid {
+            .content-wrapper,
+            nav {
                 padding-left: 4vw;
                 padding-right: 4vw;
             }
         }
 
         @media (min-width: 1440px) {
-            .hero-content,
-            nav,
-            .works-header,
-            .project-card,
-            .project-grid {
+            .content-wrapper,
+            nav {
                 padding-left: 6vw;
                 padding-right: 6vw;
             }
         }
 
         @media (min-width: 1920px) {
-            .hero-content,
-            nav,
-            .works-header,
-            .project-card,
-            .project-grid {
+            .content-wrapper,
+            nav {
                 padding-left: 8vw;
                 padding-right: 8vw;
             }
         }
 
         @media (max-width: 1200px) {
-            .hero-text {
+            .about-text {
                 font-size: 48px;
-            }
-
-            .works-section {
-                gap: 200px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .works-section {
-                gap: 150px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .works-section {
-                gap: 120px;
             }
         }
 
@@ -341,14 +211,13 @@
         }
 
         @media (max-width: 768px) {
-            .hero-text {
+            .about-text {
                 font-size: 36px;
                 line-height: 120%;
             }
 
-            .hero-content {
-                padding: 0 24px;
-                height: auto;
+            .about-section {
+                padding: 40px 0;
             }
 
             .nav-links {
@@ -370,6 +239,10 @@
         }
 
         @media (max-width: 600px) {
+            .about-text {
+                font-size: 28px;
+            }
+
             nav {
                 height: auto;
                 padding: 24px;
@@ -410,65 +283,21 @@
                 height: 24px;
             }
         }
-
-            .works-section {
-                gap: 100px;
-                padding: 60px 0;
-            }
-
-            .works-header {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-
-            .project-card {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-
-            .project-grid {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-
-            .project-title {
-                font-size: 40px;
-            }
-
-            .project-grid-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .project-grid-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .project-title {
-                font-size: 32px;
-            }
-
-            .project-category,
-            .project-date {
-                font-size: 16px;
-            }
-
-            .project-grid-row {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="assets/background.mp4" type="video/mp4">
-        </video>
+    <div class="content-wrapper">
+        <!-- About Section -->
+        <section class="about-section">
+            <p class="about-text">
+                <span>I have been planing and creating</span>
+                <span>contents based on understanding</span>
+                <span>brand essense.</span>
+            </p>
+        </section>
     </div>
 
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">EDDY.TION</a>
