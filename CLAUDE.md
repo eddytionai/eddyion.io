@@ -19,6 +19,10 @@ eddytion.io/
 ├── play.html           # Experimental work (4-column grid, variable sizes)
 ├── about.html          # About page with bio text
 ├── content.html        # Project detail page
+├── work/index.html     # Clean URL mirror of work.html
+├── play/index.html     # Clean URL mirror of play.html
+├── about/index.html    # Clean URL mirror of about.html
+├── content/index.html  # Clean URL mirror of content.html
 ├── data/
 │   ├── work.json      # Work projects data (title, subtitle, thumbnail, link)
 │   ├── play.json      # Play projects data (title, subtitle, thumbnail, size)
@@ -44,8 +48,8 @@ eddytion.io/
      "id": "project-id",
      "title": "Project Title",
      "subtitle": "Project Description",
-     "thumbnail": "assets/work/project-id/thumbnail.jpg",
-     "link": "content.html?id=project-id"
+     "thumbnail": "/assets/work/project-id/thumbnail.jpg",
+     "link": "/content/?id=project-id"
    }
    ```
 
@@ -58,7 +62,7 @@ eddytion.io/
      "id": "project-id",
      "title": "Project Title",
      "subtitle": "Project Description",
-     "thumbnail": "assets/play/project-id/thumbnail.jpg",
+     "thumbnail": "/assets/play/project-id/thumbnail.jpg",
      "size": "size-large"
    }
    ```
@@ -149,6 +153,9 @@ Desktop:   >1200px (default layout)
 - Consistent navigation across all pages with theme-appropriate colors
 - Hover effects on all interactive elements (opacity: 0.6)
 - Mobile-optimized navigation (stacked layout on small screens)
+- Thumbnail card entrance animation: `cardReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1)`, `translateY(20px)`, delay `0.3 + index * 0.05s`
+- Thumbnail hover: image scales to `1.05` with `transition 0.4s ease`
+- Play page thumbnails randomly shuffled on each load
 
 ## Development Notes
 - All pages use the same responsive padding system
@@ -158,6 +165,9 @@ Desktop:   >1200px (default layout)
 - JavaScript used only for JSON data loading (async fetch)
 - Projects dynamically generated from JSON data
 - Images loaded as CSS background-image for proper sizing
+- All nav links and JSON paths use absolute paths (e.g. `/work/`, `/data/work.json`)
+- Clean URLs: each page exists as both `page.html` and `page/index.html` (mirrors)
+- When editing HTML pages, update both the root file AND the corresponding subdirectory `index.html`
 
 ## Content Workflow
 1. **Add Images**: Place thumbnails in `assets/work/` or `assets/play/`
